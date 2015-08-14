@@ -11,13 +11,13 @@ namespace TokenBasedAuthenticationSample.Controllers
 {
     public class AccountController : Controller
     {
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl)
         {
-            return View();
+            return View((object)returnUrl);
         }
 
         [HttpPost]
-        public ActionResult Login(string token)
+        public ActionResult Login(string token, string returnUrl)
         {
             var ident = new ClaimsIdentity(
             new[]
@@ -43,7 +43,7 @@ namespace TokenBasedAuthenticationSample.Controllers
                 new AuthenticationProperties { IsPersistent = false }, ident);
 
             //// auth is succeed, without needing any password just claim based 
-            return RedirectToAction("Index", "TopSecret");
+            return Redirect(returnUrl ?? Url.Action("Index", "TopSecret"));
         }
     }
 }
