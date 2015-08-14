@@ -32,7 +32,7 @@ namespace TokenBasedAuthenticationSample.Controllers
                 // populate assigned user's role form your DB 
                 // and add each one as a claim  
                 new Claim(ClaimTypes.Role,"R1"),
-                new Claim(ClaimTypes.Role,"R2"),
+                new Claim(ClaimTypes.Role,"Editor"),
                 // and so on
             },
             DefaultAuthenticationTypes.ApplicationCookie);
