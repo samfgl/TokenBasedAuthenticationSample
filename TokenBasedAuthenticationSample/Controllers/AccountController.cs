@@ -43,7 +43,9 @@ namespace TokenBasedAuthenticationSample.Controllers
                 new AuthenticationProperties { IsPersistent = false }, ident);
 
             //// auth is succeed, without needing any password just claim based 
-            return Redirect(returnUrl ?? Url.Action("Index", "TopSecret"));
+            return Redirect(string.IsNullOrWhiteSpace(returnUrl)
+                ? Url.Action("Index", "TopSecret")
+                : returnUrl);
         }
 
         [Authorize]
