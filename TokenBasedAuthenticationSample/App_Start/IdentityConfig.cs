@@ -6,8 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TokenBasedAuthenticationSample.Models;
-using TokenBasedAuthenticationSample.Services;
 
 namespace TokenBasedAuthenticationSample
 {
@@ -15,7 +13,6 @@ namespace TokenBasedAuthenticationSample
     {
         public void Configuration(IAppBuilder app)
         {
-            app.CreatePerOwinContext(() => new UserManager<AppUser>(new DummyUserStore()));
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
