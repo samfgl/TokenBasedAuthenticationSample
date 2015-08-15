@@ -22,13 +22,15 @@ namespace TokenBasedAuthenticationSample.Controllers
             var ident = new ClaimsIdentity(
             new[]
             {
-                // since userCer is unique for each user we could easily
-                // use it as a claim. If not use user table ID 
+                // adding following 2 claim just for supporting default antiforgery provider
                 new Claim(ClaimTypes.NameIdentifier,token),
                 new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "ASP.NET Identity", "http://www.w3.org/2001/XMLSchema#string"),
+
+                // an optional claim you could omit this 
                 new Claim(ClaimTypes.Name,token+"Name"),
 
                 new Claim("Certificate", token),
+                
                 // populate assigned user's role form your DB 
                 // and add each one as a claim  
                 new Claim(ClaimTypes.Role,"R1"),
