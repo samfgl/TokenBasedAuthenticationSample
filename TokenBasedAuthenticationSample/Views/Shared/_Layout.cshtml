@@ -26,6 +26,14 @@
                     <li>@Html.ActionLink("Restricted", "Index", "TopSecret")</li>
                     <li>@Html.ActionLink("Editors Only", "EditorsOnly", "TopSecret")</li>
                     <li>@Html.ActionLink("Admins Only", "AdminssOnly", "TopSecret")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Log out", "Logout", "Account")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Log in", "Login", "Account")</li>
+                    }
                 </ul>
             </div>
         </div>

@@ -45,5 +45,12 @@ namespace TokenBasedAuthenticationSample.Controllers
             //// auth is succeed, without needing any password just claim based 
             return Redirect(returnUrl ?? Url.Action("Index", "TopSecret"));
         }
+
+        [Authorize]
+        public ActionResult Logout()
+        {
+            HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
