@@ -199,6 +199,7 @@
     <Content Include="Views\TopSecret\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\TopSecret\EditorsOnly.cshtml" />
+    <Content Include="Views\TopSecret\AdminssOnly.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

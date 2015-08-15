@@ -16,8 +16,15 @@ namespace TokenBasedAuthenticationSample.Controllers
             return View((object)userName);
         }
 
-        [Authorize(Roles ="Editor")]
+        [Authorize(Roles = "Editor")]
         public ActionResult EditorsOnly()
+        {
+            var userName = User.Identity.Name;
+            return View((object)userName);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AdminssOnly()
         {
             var userName = User.Identity.Name;
             return View((object)userName);
